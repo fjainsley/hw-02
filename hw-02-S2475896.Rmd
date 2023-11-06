@@ -74,7 +74,36 @@ _Write your text to answer exercise 2b here (Please delete this message before s
 ## Exercise 3
 
 ```{r ex3, out.width = "80%"}
-# Write your code to answer exercise 3 here
+Run17_Miles <- filter(run17, event == "10 Mile") 
+
+
+ Run17_Waves <- 
+   na.omit(
+     mutate(
+       Run17_Miles,
+       Wave = case_when(clock_sec-net_sec <180 ~ "First Wave",
+  clock_sec-net_sec > 1380 ~ "Last Wave")))
+ 
+ 
+ ggplot(data = na.omit(Run17_Waves), 
+mapping = aes(
+x = age,
+y = net_sec/60,
+colour = Wave)) +
+geom_point() +   geom_smooth(method = lm) +
+labs(
+x = "Runner's Age, in years",
+y = "Race Time (Minutes)",
+colour = "Wave",
+title = "Scatter Plot of 10 Mile Race, Time Against Age",
+subtitle = "
+First vs Last Wave")
+
+
+ 
+ 
+
+ 
 
 
 
