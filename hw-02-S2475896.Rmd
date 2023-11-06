@@ -27,11 +27,14 @@ run17 %>%
 ```
 
 
-The histogram is bell shaped and skewed to the left suggesting that 
+The histogram is bell shaped and skewed to the left suggesting that it is more popular in those young
 
 
 ```{r ex1b, out.width="80%"}
-# 
+run17 %>%
+  filter(event == "5K") %>%
+  ggplot(mapping = aes(x = age)) +
+    geom_histogram(binwidth = 2)
 
 
 
@@ -40,8 +43,7 @@ The histogram is bell shaped and skewed to the left suggesting that
 ```
 
 
-_Write your text to answer exercise 1b here (Please delete this message before submission!)_
-
+Similarly to the 10 mile event this is roughly a bell which is skewed to the left, however the smaller sample size has resulted in a much less smooth curve and this does not follow the trend continuously(the early spike betwen 5 - 13 yeaars)
 
 ## Exercise 2
 
